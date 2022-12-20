@@ -1,9 +1,14 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
 
-const sequelize = new Sequelize("montanadb", "admin", "admin", {
- host: "localhost",
- dialect: "postgres",
-});
+// const sequelize = new Sequelize("montanadb", "admin", "admin", {
+//  host: "localhost",
+//  dialect: "postgres",
+// });
+
+const sequelize = new Sequelize("travelox_db", "root", "root", {
+  host: "postgres",
+  dialect: "postgres",
+ });
 
 // const sequelize = new Sequelize(process.env.DATABASE_URL, {
 //   dialectOptions: {
