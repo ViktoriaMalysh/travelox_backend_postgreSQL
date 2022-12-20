@@ -1,0 +1,31 @@
+- pipeline: "deploy first version travelox backend"
+  on: "EVENT"
+  events:
+  - type: "PUSH"
+    refs:
+    - "refs/heads/main"
+  priority: "NORMAL"
+  fail_on_prepare_env_warning: true
+  actions:
+  - action: "Execute npm test"
+    type: "BUILD"
+    main_service_name: "Main"
+    docker_image_name: "library/node"
+    docker_image_tag: "18"
+    execute_commands:
+    - "# yarn install"
+    - "npm install"
+    - "npm test"
+    services:
+    - type: "POSTGRE_SQL"
+      version: "latest"
+      connection:
+        host: "postgres"
+        port: 5432
+        user: "root"
+        password: "root"
+        db: "travelox_db"
+    volume_mappings:
+    - "/:/buddy/travelox-backend-postgresql"
+    cache_base_image: true
+    shell: "BASH"
