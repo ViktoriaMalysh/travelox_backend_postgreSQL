@@ -5,10 +5,15 @@ const { Sequelize, Model, DataTypes } = require("sequelize");
 //  dialect: "postgres",
 // });
 
-const sequelize = new Sequelize("travelox_db", "root", "root", {
-  host: "postgres",
+const sequelize = new Sequelize("travelox_db", "admin", "tlJpfqmJWmFrtORQLXGVUaEdfcXZnpfc", {
+  host: "dpg-cehf74g2i3mqvl96u4vg-a",
   dialect: "postgres",
  });
+
+// [hostname]:  dpg-cehf74g2i3mqvl96u4vg-a
+// [db]:  travelox_db
+// [user]:  admin
+// [password]:  tlJpfqmJWmFrtORQLXGVUaEdfcXZnpfc
 
 // const sequelize = new Sequelize(process.env.DATABASE_URL, {
 //   dialectOptions: {
